@@ -34,7 +34,7 @@ const INTEGRATIONS = [
 
 export function Integrations() {
   return (
-    <section id="integrations" className="relative py-28">
+    <section id="integrations" className="relative py-12 lg:py-24">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal className="mx-auto mb-16 max-w-2xl text-center">
           <span className="text-xs uppercase tracking-[0.3em] text-primary/80">Integrations</span>

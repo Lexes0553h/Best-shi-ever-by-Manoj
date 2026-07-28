@@ -29,7 +29,7 @@ export function BookDemo() {
     'w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 transition-all focus:border-primary/50 focus:bg-white/8 focus:outline-none focus:ring-2 focus:ring-primary/20';
 
   return (
-    <section id="book-demo" className="relative overflow-hidden py-28">
+    <section id="book-demo" className="relative overflow-hidden py-12 lg:py-24">
       <div className="absolute inset-0 mesh-emerald opacity-40" />
       <div className="relative mx-auto max-w-5xl px-6">
         <div className="grid gap-12 lg:grid-cols-2">

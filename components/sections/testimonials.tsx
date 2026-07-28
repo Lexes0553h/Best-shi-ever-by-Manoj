@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Reveal } from '@/components/motion/reveal';
@@ -72,12 +72,20 @@ export function Testimonials() {
     setIndex((prev) => (prev + dir + TESTIMONIALS.length) % TESTIMONIALS.length);
   };
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDirection(1);
+      setIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   const t = TESTIMONIALS[index];
 
   return (
-    <section id="testimonials" className="relative py-28">
-      <div className="mx-auto max-w-6xl px-6">
-        <Reveal className="mx-auto mb-16 max-w-2xl text-center">
+    <section id="testimonials" className="relative py-12 lg:py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <Reveal className="mx-auto mb-10 lg:mb-16 max-w-2xl text-center">
           <span className="text-xs uppercase tracking-[0.3em] text-primary/80">Testimonials</span>
           <h2 className="mt-4 font-display text-4xl font-light tracking-tight sm:text-5xl">
             Loved by the teams
@@ -87,8 +95,8 @@ export function Testimonials() {
 
         <Reveal delay={0.1}>
           <div className="relative mx-auto max-w-3xl">
-            <div className="relative overflow-hidden rounded-3xl glass-strong p-8 sm:p-12">
-              <Quote className="absolute right-8 top-8 h-16 w-16 text-primary/10" />
+            <div className="relative overflow-hidden rounded-3xl glass-strong p-6 sm:p-12 min-h-[320px] sm:min-h-[300px] flex flex-col justify-center">
+              <Quote className="absolute right-4 top-4 sm:right-8 sm:top-8 h-12 w-12 sm:h-16 sm:w-16 text-primary/10" />
 
               <AnimatePresence mode="wait" custom={direction}>
                 <motion.div
@@ -99,23 +107,23 @@ export function Testimonials() {
                   exit={{ opacity: 0, x: direction > 0 ? -40 : 40 }}
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <div className="mb-6 flex gap-0.5">
+                  <div className="mb-4 sm:mb-6 flex gap-0.5">
                     {Array.from({ length: t.rating }).map((_, i) => (
                       <Star key={i} className="h-4 w-4 fill-primary text-primary" />
                     ))}
                   </div>
-                  <p className="text-balance text-lg font-light leading-relaxed text-foreground sm:text-xl">
+                  <p className="text-balance text-base font-light leading-relaxed text-foreground sm:text-xl">
                     &ldquo;{t.quote}&rdquo;
                   </p>
-                  <div className="mt-8 flex items-center gap-4">
+                  <div className="mt-6 sm:mt-8 flex items-center gap-4">
                     <img
                       src={t.avatar}
                       alt={t.name}
-                      className="h-12 w-12 rounded-full object-cover ring-2 ring-primary/30"
+                      className="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover ring-2 ring-primary/30"
                     />
                     <div>
-                      <p className="font-medium">{t.name}</p>
-                      <p className="text-sm text-muted-foreground">{t.role}, {t.company}</p>
+                      <p className="font-medium text-sm sm:text-base">{t.name}</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground">{t.role}, {t.company}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -134,7 +142,7 @@ export function Testimonials() {
                     }}
                     className={cn(
                       'h-1.5 rounded-full transition-all duration-300',
-                      i === index ? 'w-8 bg-primary' : 'w-1.5 bg-white/20 hover:bg-white/40'
+                      i === index ? 'w-8 bg-primary' : 'w-1.5 bg-slate-200 hover:bg-slate-300'
                     )}
                     aria-label={`Go to testimonial ${i + 1}`}
                   />
@@ -143,14 +151,14 @@ export function Testimonials() {
               <div className="flex gap-2">
                 <button
                   onClick={() => paginate(-1)}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-muted-foreground transition-all hover:border-primary/40 hover:text-foreground"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/50 text-slate-500 transition-all hover:border-primary/40 hover:text-slate-900"
                   aria-label="Previous"
                 >
                   <ChevronLeft className="h-5 w-5" />
                 </button>
                 <button
                   onClick={() => paginate(1)}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-muted-foreground transition-all hover:border-primary/40 hover:text-foreground"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/50 text-slate-500 transition-all hover:border-primary/40 hover:text-slate-900"
                   aria-label="Next"
                 >
                   <ChevronRight className="h-5 w-5" />

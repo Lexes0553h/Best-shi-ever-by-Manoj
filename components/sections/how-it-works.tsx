@@ -33,7 +33,7 @@ const STEPS = [
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="relative overflow-hidden border-y border-white/5 bg-bg-secondary/40 py-28">
+    <section id="how-it-works" className="relative overflow-hidden border-y border-white/5 bg-bg-secondary/40 py-12 lg:py-24">
       <div className="absolute inset-0 bg-grid bg-grid-fade opacity-30" />
       <div className="relative mx-auto max-w-6xl px-6">
         <Reveal className="mx-auto mb-20 max-w-2xl text-center">

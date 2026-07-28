@@ -58,7 +58,7 @@ const REASONS = [
 
 export function WhyChooseUs() {
   return (
-    <section id="why-us" className="relative py-28">
+    <section id="why-us" className="relative py-12 lg:py-24">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal className="mx-auto mb-16 max-w-2xl text-center">
           <span className="text-xs uppercase tracking-[0.3em] text-primary/80">Why Choose Us</span>

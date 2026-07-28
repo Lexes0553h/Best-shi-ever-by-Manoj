@@ -45,9 +45,9 @@ export function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="relative overflow-hidden border-y border-white/5 bg-bg-secondary/40 py-28">
+    <section id="faq" className="relative overflow-hidden border-y border-white/5 bg-bg-secondary/40 py-12 lg:py-24">
       <div className="mx-auto max-w-3xl px-6">
-        <Reveal className="mb-16 text-center">
+        <Reveal className="mb-10 lg:mb-16 text-center">
           <span className="text-xs uppercase tracking-[0.3em] text-primary/80">FAQ</span>
           <h2 className="mt-4 font-display text-4xl font-light tracking-tight sm:text-5xl">
             Questions, answered.

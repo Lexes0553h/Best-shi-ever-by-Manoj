@@ -38,7 +38,7 @@ const AI_FEATURES = [
 
 export function AIFeatures() {
   return (
-    <section id="solutions" className="relative overflow-hidden border-y border-white/5 bg-bg-secondary/40 py-28">
+    <section id="solutions" className="relative overflow-hidden border-y border-white/5 bg-bg-secondary/40 py-12 lg:py-24">
       <div className="absolute inset-0 mesh-emerald opacity-30" />
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="grid items-center gap-16 lg:grid-cols-2">
